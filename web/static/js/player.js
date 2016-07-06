@@ -3,17 +3,14 @@ let Player = {
 
   init(domId, playerId, onReady){
     window.onYouTubeIframeAPIReady = () => {
-      console.log("QQQQQQQQQQQQ")
       this.onIframeReady(domId, playerId, onReady)
     }
     let youtubeScriptTab = document.createElement("script")
     youtubeScriptTab.src = "//www.youtube.com/iframe_api"
     document.head.appendChild(youtubeScriptTab)
-    console.log(">>>>>>>>>>>>>>>>>>>>>")
   },
 
   onIframeReady(domId, playerId, onReady){
-    console.log("AAAAAAAAAAAAAA")
     this.player = new YT.Player(domId, {
       height: "360",
       width: "420",

@@ -1,3 +1,7 @@
 #msg-container {
   min-height: 190px;
 }
+
+.post-button {
+  margin-top: 10px;
+}
