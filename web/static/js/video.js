@@ -8,7 +8,7 @@ let Video = {
     let videoId  = element.getAttribute("data-id")
 
     socket.connect()
-    Player.init(element.id, PlayerId, () => {
+    Player.init(element.id, playerId, () => {
       this.onReady(videoId, socket)
     })
   },
@@ -18,7 +18,10 @@ let Video = {
     let msgInput     = document.getElementById("msg-input")
     let postButton   = document.getElementById("msg-submit")
     let vidChannel   = socket.channel("videos:" + videoId)
-    //TODO join vidChannel
+
+    vidChannel.join()
+      .receive("ok", resp => console.log("joined the video channel", resp))
+      .receive("error", reason => console.log("join failed", reason))
   }
 }
 
