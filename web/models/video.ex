@@ -3,12 +3,15 @@ defmodule Rumbl.Video do
 
   @primary_key {:id, Rumbl.Permalink, autogenerate: true}
   schema "videos" do
-    field :url, :string
-    field :title, :string
-    field :description, :string
-    field :slug, :string
-    belongs_to :user, Rumbl.User
-    belongs_to :category, Rumbl.Category
+    field :url,            :string
+    field :title,          :string
+    field :description,    :string
+    field :slug,           :string
+
+    belongs_to :user,      Rumbl.User
+    belongs_to :category,  Rumbl.Category
+
+    has_many :annotations, Rumbl.Annotation
 
     timestamps
   end
